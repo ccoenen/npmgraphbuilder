@@ -20,7 +20,7 @@ graphBuilder.createNpmDependenciesGraph(pkgName, graph).
 function httpClient(url, data) {
   console.log('Calling: ', url);
   var q = require('q');
-  var http = require('http');
+  var http = /^https:\/\//.test(url) ? require('https') : require('http');
   var querystring = require('querystring');
 
   var defer = q.defer();
